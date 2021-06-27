@@ -1,0 +1,21 @@
+<hr class="mt-2">
+<h6 style="text-align: center;">Comments</h6>
+<div class="row">
+    <div class="col-md-12">
+         <form>
+             <div class="form-group">
+                 <label>Your comment</label>
+                 <input #comment class="form-control" type="text" style="width:fit-content;">
+                 <button type="submit" (click)=createComment(comment.value) class="mt-1 btn btn-secondary">Submit</button>
+             </div>
+         </form>
+    </div>
+    <div class="col-md-12">
+        <div *ngFor="let cmt of commentsByPostId;let i = index">
+            <ul>
+                <li style="font-style:italic;">{{cmt.comment}}</li>
+            </ul>
+        </div>
+    </div>
+
+</div>

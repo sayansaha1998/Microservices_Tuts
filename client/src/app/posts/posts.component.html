@@ -1,0 +1,39 @@
+
+    <hr>
+    <div class="col-md-12">
+
+        <h5 class="justify mx-3 mt-2">Create Post</h5>
+        <form >
+            <div class="form-group ">
+                <label for="postTitle" class="px-3  mt-3">Post Title</label>
+                <input #title style="width:fit-content;" id="postTitle" class="form-control ml-3 mt-3" type="text">
+                <input #content style="width:fit-content;" id="postContent" class="form-control ml-3 mt-2" type="textArea">
+                <br>
+                <div class= "ml-3">
+                    <button (click)=createPost(title.value,content.value) class="btn btn-primary" type="submit">Create Post</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <hr>
+    <div class="col-sm-4">
+        <h5 class="mx-3 mt-2">List of Posts</h5>
+        <div *ngFor="let post of postList;let i= index">
+            <div class="row">
+                <div class="col-sm-4">
+                    <div class="ml-3 my-2 card card-style">
+                        <div class="card-body" >
+                            <div>
+                                <h5 class="card-title" style="float: left;">{{post.title}}</h5>
+                                <a href="#content" class="btn btn-primary" style="float:right">Expand</a>
+                            </div>
+                            <div style="clear: both;"></div>
+                            <div class="card-text">{{post.content}}</div>
+                            <app-comments [postObject]="postObject" [postId]="post.postId"></app-comments>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
